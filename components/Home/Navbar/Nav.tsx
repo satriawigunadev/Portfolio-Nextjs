@@ -1,14 +1,38 @@
-"Use client";
+"use client";
 import { NavLinks } from "@/constant/constant";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaCode } from "react-icons/fa";
 import { BiDownload } from "react-icons/bi";
 import { HiBars3BottomRight } from "react-icons/hi2";
 
-const Nav = () => {
+type Props = {
+  openNav: () => void;
+};
+
+const Nav = ({ openNav }: Props) => {
+  const [navBg, setNavBg] = useState(false);
+
+  useEffect(() => {
+    const handler = () => {
+      if (window.scrollY >= 90) {
+        setNavBg(true);
+      } else {
+        setNavBg(false);
+      }
+    };
+
+    window.addEventListener("scroll", handler);
+
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
+
   return (
-    <div className="transition-all duration-200 h-[12vh] z-1000 fixed w-full">
+    <div
+      className={`transition-all ${
+        navBg ? `bg-[#0f142ed9] shadow-md` : ""
+      } duration-200 h-[12vh] z-1000 fixed w-full`}
+    >
       <div className="flex items-center h-full justify-between w-[90%] mx-auto">
         {/* Logo */}
         <div className="flex space-x-2 items-center">
@@ -41,7 +65,10 @@ const Nav = () => {
             <span>Download CV</span>
           </button>
           {/* Burger Menu */}
-          <HiBars3BottomRight className="w-8 h-8 cursor-pointer text-white lg:hidden" />
+          <HiBars3BottomRight
+            onClick={openNav}
+            className="w-8 h-8 cursor-pointer text-white lg:hidden"
+          />
         </div>
       </div>
     </div>
