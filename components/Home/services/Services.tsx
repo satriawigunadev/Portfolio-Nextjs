@@ -10,28 +10,40 @@ const Services = () => {
         impacful result
       </h1>
       <div className="w-[90%] sm:w-[70%] mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 mt-20 items-center">
-        <div>
+        <div data-aos="fade-right" data-aos-anchor-placement="top-center">
           <ServiceCard
             icon="/images/s1.png"
             name="Ui and UX"
             description="Designing interface that are intuitive, efficient and enjoyable to use"
           />
         </div>
-        <div>
+        <div
+          data-aos="fade-right"
+          data-aos-anchor-placement="top-center"
+          data-aos-delay="100"
+        >
           <ServiceCard
             icon="/images/s2.png"
             name="Web and Mobile App"
             description="Designing interface that are intuitive, efficient and enjoyable to use"
           />
         </div>
-        <div>
+        <div
+          data-aos="fade-right"
+          data-aos-anchor-placement="top-center"
+          data-aos-delay="100"
+        >
           <ServiceCard
             icon="/images/s3.png"
             name="Design and Creative"
             description="Designing interface that are intuitive, efficient and enjoyable to use"
           />
         </div>
-        <div>
+        <div
+          data-aos="fade-right"
+          data-aos-anchor-placement="top-center"
+          data-aos-delay="100"
+        >
           <ServiceCard
             icon="/images/s4.png"
             name="Development"
